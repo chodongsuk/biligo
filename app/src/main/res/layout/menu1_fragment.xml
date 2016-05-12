@@ -1,10 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+    android:background="@color/white">
 
-   <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="menu1"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dip"
+                android:paddingBottom="10dip"
+                android:background="@color/app_color"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_weight="0.5"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BillGo 회원모집"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_weight="0.5"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dip"
+                        android:layout_weight="0.5"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="가맹점 모집"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="50dip"
+                android:paddingBottom="50dip">
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_weight="0.3"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dip"
+                        android:layout_weight="0.5"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/ic_launcher"/>
+                        <TextView
+                            android:textColor="#000000"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="체육용품 렌탈"/>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_weight="0.3"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="0dip"
+                        android:layout_weight="0.5"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/ic_launcher"/>
+                        <TextView
+                            android:textColor="#000000"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="모바일 쇼핑몰"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_weight="0.3"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="0dip"
+                        android:layout_weight="0.5"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/ic_launcher"/>
+                        <TextView
+                            android:textColor="#000000"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="기타 렌탈"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+
 </LinearLayout>
