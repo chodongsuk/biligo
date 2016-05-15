@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/white">
 
     <ScrollView
@@ -13,45 +13,60 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <kr.ds.widget.ContentViewPager
+                android:padding="5dip"
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="218dip"
+                android:paddingTop="2dip"
+                />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dip"
-                android:paddingBottom="10dip"
                 android:background="@color/app_color"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+              >
 
                 <LinearLayout
+
+                    android:paddingBottom="10dip"
+                    android:paddingTop="10dip"
                     android:layout_width="0dip"
+                    android:layout_height="match_parent"
                     android:layout_weight="0.5"
-                    android:layout_height="wrap_content"
                     android:gravity="center">
 
                     <TextView
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="BillGo 회원모집"/>
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:text="BillGo 회원모집" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:paddingBottom="10dip"
+                    android:paddingTop="10dip"
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/white" />
+
+
+                <LinearLayout
+                    android:paddingBottom="10dip"
+                    android:paddingTop="10dip"
                     android:layout_width="0dip"
+                    android:layout_height="match_parent"
                     android:layout_weight="0.5"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:layout_width="0dip"
-                        android:layout_weight="0.5"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center">
-
-                        <TextView
-
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="가맹점 모집"/>
-                    </LinearLayout>
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:text="가맹점 모집" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -59,30 +74,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingTop="50dip"
-                android:paddingBottom="50dip">
+                android:paddingBottom="50dip"
+                android:paddingTop="50dip">
 
                 <LinearLayout
                     android:layout_width="0dip"
-                    android:layout_weight="0.3"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3">
 
                     <LinearLayout
+                        android:id="@+id/linearLayout_good"
                         android:layout_width="0dip"
-                        android:layout_weight="0.5"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@mipmap/ic_launcher"/>
+                            android:background="@mipmap/ic_launcher" />
+
                         <TextView
-                            android:textColor="#000000"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="체육용품 렌탈"/>
+                            android:text="체육용품 렌탈"
+                            android:textColor="#000000" />
                     </LinearLayout>
 
 
@@ -90,47 +107,53 @@
 
                 <LinearLayout
                     android:layout_width="0dip"
-                    android:layout_weight="0.3"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3">
+
                     <LinearLayout
+                        android:id="@+id/linearLayout_shop"
                         android:layout_width="0dip"
-                        android:layout_weight="0.5"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@mipmap/ic_launcher"/>
+                            android:background="@mipmap/ic_launcher" />
+
                         <TextView
-                            android:textColor="#000000"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="모바일 쇼핑몰"/>
+                            android:text="모바일 쇼핑몰"
+                            android:textColor="#000000" />
                     </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="0dip"
-                    android:layout_weight="0.3"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3">
+
                     <LinearLayout
+                        android:id="@+id/linearLayout_event"
                         android:layout_width="0dip"
-                        android:layout_weight="0.5"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@mipmap/ic_launcher"/>
+                            android:background="@mipmap/ic_launcher" />
+
                         <TextView
-                            android:textColor="#000000"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="기타 렌탈"/>
+                            android:text="기타 렌탈"
+                            android:textColor="#000000" />
                     </LinearLayout>
                 </LinearLayout>
 

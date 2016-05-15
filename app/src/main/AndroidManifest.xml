@@ -17,6 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SubActivity">
+        </activity>
+        <activity
+            android:name=".WebActivity">
+        </activity>
 
     </application>
 
