@@ -10,6 +10,7 @@ public class BoardHandler {
 	private String content;
 	private String image;
 	private String regdate;
+	private Boolean layout;
 
 	public String getUid() {
 		return uid;
@@ -49,5 +50,14 @@ public class BoardHandler {
 
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
+	}
+
+	public Boolean getLayout() {
+
+		return layout;
+	}
+
+	public void setLayout(Boolean layout) {
+		this.layout = layout;
 	}
 }

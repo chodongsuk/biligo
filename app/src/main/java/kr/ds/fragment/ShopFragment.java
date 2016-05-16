@@ -96,7 +96,7 @@ public class ShopFragment extends Fragment{
                 new BaseResultListener() {
 
                     @Override
-                    public <T> void OnComplete() {
+                    public <T> void OnComplete(String result) {
 
                     }
 

@@ -17,6 +17,7 @@ import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 
+import kr.com.biligo.GoodViewActivity;
 import kr.com.biligo.R;
 import kr.ds.adapter.GoodAdapter;
 import kr.ds.data.BaseResultListener;
@@ -88,9 +89,9 @@ public class GoodFragment extends Fragment implements View.OnClickListener{
                                     int position, long id) {
                 // TODO Auto-generated method stub
                 Log.i("TEST","onItemClick");
-//                Intent NextIntent = new Intent(mContext, ViewActivity.class);
-//                NextIntent.putExtra("data", mData.get(position));
-//                startActivity(NextIntent);
+                Intent NextIntent = new Intent(mContext, GoodViewActivity.class);
+                NextIntent.putExtra("data", mData.get(position));
+                startActivity(NextIntent);
 
             }
         });
@@ -109,7 +110,7 @@ public class GoodFragment extends Fragment implements View.OnClickListener{
                 new BaseResultListener() {
 
                     @Override
-                    public <T> void OnComplete() {
+                    public <T> void OnComplete(String result) {
 
                     }
 
@@ -141,7 +142,7 @@ public class GoodFragment extends Fragment implements View.OnClickListener{
                 new BaseResultListener() {
 
                     @Override
-                    public <T> void OnComplete() {
+                    public <T> void OnComplete(String result) {
 
                     }
 

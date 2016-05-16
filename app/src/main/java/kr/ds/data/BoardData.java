@@ -82,6 +82,7 @@ public class BoardData extends BaseData {
                             mBoardHandler.setContent(jsonArray1.getJSONObject(i).getString("content"));
                             mBoardHandler.setImage(jsonArray1.getJSONObject(i).getString("image"));
                             mBoardHandler.setRegdate(jsonArray1.getJSONObject(i).getString("regdate"));
+                            mBoardHandler.setLayout(false);
                         }
                     }
                 }

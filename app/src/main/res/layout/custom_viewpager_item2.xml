@@ -4,10 +4,15 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="218dip"
         android:orientation="horizontal">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
 
 
         <ImageView
@@ -15,9 +20,11 @@
             android:layout_width="match_parent"
             android:layout_height="218dip"
             android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher"/>
+            />
 
-    </LinearLayout>
+
+
+    </FrameLayout>
 
 
 </LinearLayout>

@@ -86,7 +86,7 @@ public class PostData extends BaseData {
                 Log.i("TEST", result+"");
                 if (result.matches("success") ) {
                     if (mResultListener != null) {
-                        mResultListener.OnComplete();
+                        mResultListener.OnComplete(result);
                     }
                 } else {
                     if (mResultListener != null) {

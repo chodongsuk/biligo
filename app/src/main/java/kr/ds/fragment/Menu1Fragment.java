@@ -75,7 +75,7 @@ public class Menu1Fragment extends BaseFragment implements View.OnClickListener{
                 new BaseResultListener() {
 
                     @Override
-                    public <T> void OnComplete() {
+                    public <T> void OnComplete(String result) {
 
                     }
 

@@ -40,8 +40,16 @@ public class SubActivity extends AppCompatActivity {
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         if (mToolbar != null) {
+            if(mType == Menu1Fragment.TypeGood) {
+                mToolbar.setTitle("체육용품 렌탈");
+            }else if(mType == Menu1Fragment.TypeShop) {
+                mToolbar.setTitle("모바일 쇼핑몰");
+            }else if(mType == Menu1Fragment.TypeEvent) {
+                mToolbar.setTitle("기타 렌탈");
+            }
             setSupportActionBar(mToolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         }
         getFragment(mType);
 
@@ -49,15 +57,12 @@ public class SubActivity extends AppCompatActivity {
     public void getFragment(int type){
         switch (type){
             case Menu1Fragment.TypeGood:
-                mToolbar.setTitle("체육용품 렌탈");
                 mFragment = GoodFragment.newInstance();
                 break;
             case Menu1Fragment.TypeShop:
-                mToolbar.setTitle("모바일 쇼핑몰");
                 mFragment = ShopFragment.newInstance();
                 break;
             case Menu1Fragment.TypeEvent:
-                mToolbar.setTitle("기타 렌탈");
                 mFragment = EventFragment.newInstance();
                 break;
         }

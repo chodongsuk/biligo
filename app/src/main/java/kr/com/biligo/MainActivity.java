@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
     private void SetTell(final String tell){
         if (!DsObjectUtils.getInstance(getApplicationContext()).isEmpty(tell)) {
             AlertDialog.Builder alt_bld = new AlertDialog.Builder(this);
-            alt_bld.setMessage("해당 펜션 전화 연결 하시겠습니까?")
+            alt_bld.setMessage("전화 연결 하시겠습니까?")
                     .setCancelable(false)
                     .setPositiveButton("전화걸기",
                             new DialogInterface.OnClickListener() {

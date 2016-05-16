@@ -16,6 +16,8 @@ import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 
+import kr.com.biligo.EventViewActivity;
+import kr.com.biligo.GoodViewActivity;
 import kr.com.biligo.R;
 import kr.com.biligo.WebActivity;
 import kr.ds.adapter.EventAdapter;
@@ -71,7 +73,7 @@ public class EventFragment extends Fragment{
                                     int position, long id) {
                 // TODO Auto-generated method stub
                 Log.i("TEST","onItemClick");
-                Intent NextIntent = new Intent(mContext, WebActivity.class);
+                Intent NextIntent = new Intent(mContext, EventViewActivity.class);
                 NextIntent.putExtra("data", mData.get(position));
                 startActivity(NextIntent);
 
@@ -92,7 +94,7 @@ public class EventFragment extends Fragment{
                 new BaseResultListener() {
 
                     @Override
-                    public <T> void OnComplete() {
+                    public <T> void OnComplete(String result) {
 
                     }
 

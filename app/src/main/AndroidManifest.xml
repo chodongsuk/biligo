@@ -26,6 +26,12 @@
         <activity
             android:name=".WebActivity2">
         </activity>
+        <activity
+            android:name=".GoodViewActivity">
+        </activity>
+        <activity
+            android:name=".EventViewActivity">
+        </activity>
 
     </application>
 
