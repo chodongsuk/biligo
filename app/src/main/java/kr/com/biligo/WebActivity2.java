@@ -1,33 +1,22 @@
 package kr.com.biligo;
 
-import kr.ds.handler.EventHandler;
-import kr.ds.handler.ShopHandler;
-import kr.ds.utils.DsObjectUtils;
-import kr.ds.widget.ContentViewPager;
-
-import android.app.AlertDialog;
-import android.content.BroadcastReceiver;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import kr.ds.handler.ShopHandler;
+import kr.ds.utils.DsObjectUtils;
 
 /**
  * Created by Administrator on 2016-03-21.
  */
-public class WebActivity extends BaseActivity {
+public class WebActivity2 extends BaseActivity {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private Toolbar mToolbar;
@@ -43,20 +32,19 @@ public class WebActivity extends BaseActivity {
     private WebView mWebView;
     private ProgressBar pb;
     private MyWebChromeClient mChromeClient;
+    private String mUrl;
+    private String mTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mSavedata = (ShopHandler) getIntent().getParcelableExtra("data");
+        mUrl = (String)getIntent().getStringExtra("url");
+        mTitle = (String)getIntent().getStringExtra("title");
         setContentView(R.layout.activity_web);
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         if (mToolbar != null) {
-            if(!DsObjectUtils.getInstance(getApplicationContext()).isEmpty(mSavedata.getSd_title())){
-                mToolbar.setTitle(mSavedata.getSd_title());
-            }else{
-                mToolbar.setTitle(getResources().getString(R.string.app_name));
-            }
+            mToolbar.setTitle(mTitle.toString());
             setSupportActionBar(mToolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
@@ -89,11 +77,11 @@ public class WebActivity extends BaseActivity {
         String userAgent = mWebView.getSettings().getUserAgentString();
         mChromeClient = new MyWebChromeClient(this);
         mWebView.setWebChromeClient(mChromeClient);
-        mWebView.setWebViewClient(new OfflineWebViewClient(this));
+        mWebView.setWebViewClient(new OfflineWebViewClient2(this));
 
         if (savedInstanceState == null) {
-            if(!DsObjectUtils.getInstance(getApplicationContext()).isEmpty(mSavedata.getSd_link())) {
-                loadURL(mSavedata.getSd_link());
+            if(!DsObjectUtils.getInstance(getApplicationContext()).isEmpty(mUrl)){
+                loadURL(mUrl);
             }
         }
     }

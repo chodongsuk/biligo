@@ -8,7 +8,7 @@ import android.support.v4.app.ActivityCompat;
 /**
  * Created by Administrator on 2016-02-26.
  */
-    public class Permission implements PermissionLp {
+public class Permission implements PermissionLp {
 
     //위치 퍼미션
     public final static String[] LOCATIONS = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
@@ -115,5 +115,4 @@ import android.support.v4.app.ActivityCompat;
     }
 
 }
-
 

@@ -23,6 +23,9 @@
         <activity
             android:name=".WebActivity">
         </activity>
+        <activity
+            android:name=".WebActivity2">
+        </activity>
 
     </application>
 

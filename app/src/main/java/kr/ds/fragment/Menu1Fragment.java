@@ -1,27 +1,22 @@
 package kr.ds.fragment;
 
 import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.ProgressBar;
-import android.widget.ScrollView;
 
 import java.util.ArrayList;
 
 import kr.com.biligo.R;
 import kr.com.biligo.SubActivity;
+import kr.com.biligo.WebActivity2;
+import kr.ds.config.Config;
 import kr.ds.data.BaseResultListener;
 import kr.ds.data.MainData;
 import kr.ds.handler.MainHandler;
@@ -39,7 +34,8 @@ public class Menu1Fragment extends BaseFragment implements View.OnClickListener{
     public final static int TypeEvent = 3;
     private ContentViewPager mContentViewPager;
     private MainData mMainData;
-
+    private LinearLayout mLinearLayoutWeb1;
+    private LinearLayout mLinearLayoutWeb2;
 
     public static Menu1Fragment newInstance() {
         Menu1Fragment fragment = new Menu1Fragment();
@@ -68,6 +64,10 @@ public class Menu1Fragment extends BaseFragment implements View.OnClickListener{
         (mLinearLayoutGood = (LinearLayout) mView.findViewById(R.id.linearLayout_good)).setOnClickListener(this);
         (mLinearLayoutShop = (LinearLayout) mView.findViewById(R.id.linearLayout_shop)).setOnClickListener(this);
         (mLinearLayoutEvent = (LinearLayout) mView.findViewById(R.id.linearLayout_event)).setOnClickListener(this);
+
+        (mLinearLayoutWeb1 = (LinearLayout) mView.findViewById(R.id.linearLayout_web1)).setOnClickListener(this);
+        (mLinearLayoutWeb2 = (LinearLayout) mView.findViewById(R.id.linearLayout_web2)).setOnClickListener(this);
+
 
         mContentViewPager = (ContentViewPager) mView.findViewById(R.id.viewpager);
         mMainData = new MainData(mContext);
@@ -132,6 +132,20 @@ public class Menu1Fragment extends BaseFragment implements View.OnClickListener{
                 NextIntent.putExtra("type", TypeEvent);
                 startActivity(NextIntent);
                 break;
+            case R.id.linearLayout_web1:
+                NextIntent = new Intent(mContext, WebActivity2.class);
+                NextIntent.putExtra("title", "BillGo 회원모집");
+                NextIntent.putExtra("url", Config.URL+Config.URL_XML+Config.WEB1);
+                startActivity(NextIntent);
+                break;
+            case R.id.linearLayout_web2:
+                NextIntent = new Intent(mContext, WebActivity2.class);
+                NextIntent.putExtra("title", "가맹점 모집");
+                NextIntent.putExtra("url", Config.URL+Config.URL_XML+Config.WEB2);
+                startActivity(NextIntent);
+                break;
+
+
         }
 
     }

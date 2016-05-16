@@ -1,9 +1,13 @@
 package kr.com.biligo;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -16,11 +20,15 @@ import android.widget.Toast;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
 
+import java.util.HashMap;
+
 import kr.ds.fragment.BaseFragment;
 import kr.ds.fragment.Menu1Fragment;
 import kr.ds.fragment.Menu2Fragment;
 import kr.ds.fragment.Menu3Fragment;
 import kr.ds.fragment.Menu4Fragment;
+import kr.ds.permission.Permission;
+import kr.ds.utils.DsObjectUtils;
 
 /**
  * Created by Administrator on 2016-04-26.
@@ -31,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
     private FragmentManager mFm;
     private FragmentTransaction mFt;
     private Fragment mFragment = null;
+
+    private Permission cPermission;
+    private boolean isPermission = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +62,6 @@ public class MainActivity extends AppCompatActivity {
                     selectItem(1);
                 }else if(menuItemId == R.id.menu3){
                     selectItem(2);
-                }else if(menuItemId == R.id.menu4){
-                    selectItem(3);
                 }
                 //Toast.makeText(getApplicationContext(), getMessage(menuItemId, true), Toast.LENGTH_SHORT).show();
             }
@@ -66,8 +75,6 @@ public class MainActivity extends AppCompatActivity {
                     selectItem(1);
                 }else if(menuItemId == R.id.menu3){
                     selectItem(2);
-                }else if(menuItemId == R.id.menu4){
-                    selectItem(3);
                 }
                 //Toast.makeText(getApplicationContext(), getMessage(menuItemId, true), Toast.LENGTH_SHORT).show();
             }
@@ -82,11 +89,31 @@ public class MainActivity extends AppCompatActivity {
         if(position == 0){
             mFragment = Menu1Fragment.newInstance();
         }else if(position == 1){
-            mFragment = Menu2Fragment.newInstance();
+
+            cPermission = new Permission(MainActivity.this);
+            cPermission.setCallback(new Permission.PermissionListener() {
+                @Override
+                public void onSuccess() {
+                    SetTell("011-1111-1111");
+                }
+
+                @Override
+                public void onCancle() {
+
+                }
+
+
+
+                @Override
+                public void requestPermissions(String[] type) {
+                    ActivityCompat.requestPermissions(MainActivity.this, type, 0);
+                }
+            }).isCall();
+
+
+
         }else if(position == 2){
             mFragment = Menu3Fragment.newInstance();
-        }else if(position == 3){
-            mFragment = Menu4Fragment.newInstance();
         }
         setFragment(mFragment);
 
@@ -105,5 +132,51 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         mBottomBar.onSaveInstanceState(outState);
+    }
+
+    private void SetTell(final String tell){
+        if (!DsObjectUtils.getInstance(getApplicationContext()).isEmpty(tell)) {
+            AlertDialog.Builder alt_bld = new AlertDialog.Builder(this);
+            alt_bld.setMessage("해당 펜션 전화 연결 하시겠습니까?")
+                    .setCancelable(false)
+                    .setPositiveButton("전화걸기",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    try{
+                                        Intent NextIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + tell));
+                                        NextIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        startActivity(NextIntent);
+                                    }catch (Exception e) {
+                                        // TODO: handle exception
+                                        Toast.makeText(getApplicationContext(), "계속 문제가 발생시 관리자에게 문의해주시기 바랍니다.", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            })
+                    .setNegativeButton("취소하기", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // Action for 'NO' Button
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert = alt_bld.create();
+            alert.show();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        isPermission = true;
+        if(cPermission != null) {
+            cPermission.setRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(isPermission && cPermission != null){
+            cPermission.onRequestPermissionsResult(cPermission.getRequestCode(), cPermission.getPermissions(), cPermission.getGrantResults());
+            isPermission = false;
+        }
     }
 }

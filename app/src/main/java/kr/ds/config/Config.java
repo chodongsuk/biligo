@@ -14,7 +14,11 @@ public class Config {
 	public static String GOODSAVE = "good_save.php";
 
 	public static String SHOP = "shop.php";
+	public static String BOARD = "board.php";
 	public static String CATEGORY = "category.php";
+
+	public static String WEB1 = "html1.php";
+	public static String WEB2 = "html2.php";
 
 
 
