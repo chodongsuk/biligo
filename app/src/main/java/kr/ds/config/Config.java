@@ -20,6 +20,7 @@ public class Config {
 	public static String WEB1 = "html1.php";
 	public static String WEB2 = "html2.php";
 
+	public static String WEB3= "html3.php";
 
 
 

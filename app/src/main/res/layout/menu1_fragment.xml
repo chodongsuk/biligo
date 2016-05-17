@@ -14,12 +14,9 @@
             android:orientation="vertical">
 
             <kr.ds.widget.ContentViewPager
-                android:padding="5dip"
                 android:id="@+id/viewpager"
                 android:layout_width="match_parent"
-                android:layout_height="218dip"
-                android:paddingTop="2dip"
-                />
+                android:layout_height="218dip"/>
 
 
             <LinearLayout
@@ -94,13 +91,15 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@mipmap/ic_launcher" />
+                            android:background="@mipmap/main1" />
 
                         <TextView
+                            android:layout_marginTop="10dip"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="체육용품 렌탈"
-                            android:textColor="#000000" />
+                            android:textStyle="bold"
+                            android:textColor="@color/app_color" />
                     </LinearLayout>
 
 
@@ -122,13 +121,15 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@mipmap/ic_launcher" />
+                            android:background="@mipmap/main2" />
 
                         <TextView
+                            android:layout_marginTop="10dip"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="모바일 쇼핑몰"
-                            android:textColor="#000000" />
+                            android:textStyle="bold"
+                            android:textColor="@color/app_color" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -148,13 +149,15 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@mipmap/ic_launcher" />
+                            android:background="@mipmap/main3" />
 
                         <TextView
+                            android:layout_marginTop="10dip"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="기타 렌탈"
-                            android:textColor="#000000" />
+                            android:textStyle="bold"
+                            android:textColor="@color/app_color" />
                     </LinearLayout>
                 </LinearLayout>
 

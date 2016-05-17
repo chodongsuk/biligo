@@ -3,15 +3,15 @@
 
     <item
         android:id="@+id/menu1"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/tab1"
         android:title="홈" />
     <item
         android:id="@+id/menu2"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/tab2"
         android:title="전화연결" />
     <item
         android:id="@+id/menu3"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/tab3"
         android:title="공지사항" />
 
 

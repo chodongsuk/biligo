@@ -136,7 +136,7 @@ public class GoodFragment extends Fragment implements View.OnClickListener{
     }
 
     public void getData(String code){
-
+        mCode = code;
         mProgressBar.setVisibility(View.VISIBLE);
         mGoodData.clear().setCallBack(
                 new BaseResultListener() {

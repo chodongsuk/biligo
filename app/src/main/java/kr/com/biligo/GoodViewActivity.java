@@ -5,6 +5,9 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -27,7 +30,7 @@ import kr.ds.widget.ContentViewPager;
 public class GoodViewActivity extends BaseActivity implements View.OnClickListener{
     private Toolbar mToolbar;
     private ScrollView mScrollView;
-    private ContentViewPager mContetContentViewPager;
+    private ContentViewPager mContetViewPager;
     private GoodHandler mSavedata;
     private EditText mEditTextName;
     private EditText mEditTextHp;
@@ -36,7 +39,7 @@ public class GoodViewActivity extends BaseActivity implements View.OnClickListen
     private EditText mEditTextEndDate;
     private Button mButton;
     private CheckBox mCheckBox;
-
+    private WebView mWebView;
 
 
     @Override
@@ -57,16 +60,16 @@ public class GoodViewActivity extends BaseActivity implements View.OnClickListen
             setSupportActionBar(mToolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-        mContetContentViewPager = (ContentViewPager)findViewById(R.id.viewpager);
+        mContetViewPager = (ContentViewPager)findViewById(R.id.viewpager);
         if(!DsObjectUtils.getInstance(getApplicationContext()).isEmpty(mSavedata.getSub_images())){
-            mContetContentViewPager.setVisibility(View.VISIBLE);
+            mContetViewPager.setVisibility(View.VISIBLE);
             String[] mDatas = new String[(mSavedata.getSub_images().split(",").length)];
             for(int i=0; i<mSavedata.getSub_images().split(",").length; i++){
                 mDatas[i] = mSavedata.getSub_images().split(",")[i];
             }
-            mContetContentViewPager.setView(mDatas);
+            mContetViewPager.setView(mDatas);
         }else{
-            mContetContentViewPager.setVisibility(View.GONE);
+            mContetViewPager.setVisibility(View.GONE);
         }
         (mCheckBox = (CheckBox) findViewById(R.id.checkbox)).setOnClickListener(this);
 
@@ -78,7 +81,18 @@ public class GoodViewActivity extends BaseActivity implements View.OnClickListen
 
         (mButton = (Button)findViewById(R.id.button)).setOnClickListener(this);
 
+        mWebView = (WebView)findViewById(R.id.webview);
+        mWebView.setWebViewClient(new WebClient());
+        WebSettings set = mWebView.getSettings();
+        set.setJavaScriptEnabled(true);
+        mWebView.loadUrl(Config.URL + Config.URL_XML + Config.WEB3);
 
+    }
+    class WebClient extends WebViewClient {
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            return true;
+        }
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -161,4 +175,12 @@ public class GoodViewActivity extends BaseActivity implements View.OnClickListen
                 break;
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mContetViewPager.finish();
+    }
+
+
 }

@@ -100,17 +100,12 @@ public class Menu1Fragment extends BaseFragment implements View.OnClickListener{
 
                     }
                 }).getView();
-
-
-
         return mView;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
     }
 
     @Override
@@ -149,4 +144,12 @@ public class Menu1Fragment extends BaseFragment implements View.OnClickListener{
         }
 
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mContentViewPager.finish();
+    }
+
+
 }

@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -13,6 +16,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import kr.ds.config.Config;
 import kr.ds.data.BaseResultListener;
 import kr.ds.data.EventSaveData;
 import kr.ds.handler.EventHandler;
@@ -25,7 +29,7 @@ import kr.ds.widget.ContentViewPager;
 public class EventViewActivity extends BaseActivity implements View.OnClickListener{
     private Toolbar mToolbar;
     private ScrollView mScrollView;
-    private ContentViewPager mContetContentViewPager;
+    private ContentViewPager mContetViewPager;
     private EventHandler mSavedata;
     private EditText mEditTextName;
     private EditText mEditTextHp;
@@ -34,6 +38,7 @@ public class EventViewActivity extends BaseActivity implements View.OnClickListe
     private EditText mEditTextEndDate;
     private Button mButton;
     private CheckBox mCheckBox;
+    private WebView mWebView;
 
 
 
@@ -55,16 +60,16 @@ public class EventViewActivity extends BaseActivity implements View.OnClickListe
             setSupportActionBar(mToolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-        mContetContentViewPager = (ContentViewPager)findViewById(R.id.viewpager);
+        mContetViewPager = (ContentViewPager)findViewById(R.id.viewpager);
         if(!DsObjectUtils.getInstance(getApplicationContext()).isEmpty(mSavedata.getSub_images())){
-            mContetContentViewPager.setVisibility(View.VISIBLE);
+            mContetViewPager.setVisibility(View.VISIBLE);
             String[] mDatas = new String[(mSavedata.getSub_images().split(",").length)];
             for(int i=0; i<mSavedata.getSub_images().split(",").length; i++){
                 mDatas[i] = mSavedata.getSub_images().split(",")[i];
             }
-            mContetContentViewPager.setView(mDatas);
+            mContetViewPager.setView(mDatas);
         }else{
-            mContetContentViewPager.setVisibility(View.GONE);
+            mContetViewPager.setVisibility(View.GONE);
         }
         (mCheckBox = (CheckBox) findViewById(R.id.checkbox)).setOnClickListener(this);
 
@@ -76,7 +81,17 @@ public class EventViewActivity extends BaseActivity implements View.OnClickListe
 
         (mButton = (Button)findViewById(R.id.button)).setOnClickListener(this);
 
-
+        mWebView = (WebView)findViewById(R.id.webview);
+        mWebView.setWebViewClient(new WebClient());
+        WebSettings set = mWebView.getSettings();
+        set.setJavaScriptEnabled(true);
+        mWebView.loadUrl(Config.URL + Config.URL_XML + Config.WEB3);
+    }
+    class WebClient extends WebViewClient {
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            return true;
+        }
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -160,4 +175,11 @@ public class EventViewActivity extends BaseActivity implements View.OnClickListe
                 break;
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mContetViewPager.finish();
+    }
+
 }

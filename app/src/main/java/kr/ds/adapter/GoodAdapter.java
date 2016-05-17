@@ -82,13 +82,13 @@ public class GoodAdapter extends BaseAdapter {
                 @Override
                 public void onLoadingStarted(String arg0, View arg1) {
                     // TODO Auto-generated method stub
-                    holder.imageView.setVisibility(View.INVISIBLE);
+                    holder.imageView.setVisibility(View.GONE);
                 }
 
                 @Override
                 public void onLoadingFailed(String arg0, View arg1, FailReason arg2) {
                     // TODO Auto-generated method stub
-                    holder.imageView.setVisibility(View.VISIBLE);
+                    holder.imageView.setVisibility(View.GONE);
                 }
 
                 @Override
@@ -103,10 +103,11 @@ public class GoodAdapter extends BaseAdapter {
                 @Override
                 public void onLoadingCancelled(String arg0, View arg1) {
                     // TODO Auto-generated method stub
+                    holder.imageView.setVisibility(View.GONE);
                 }
             });
         }else{
-            holder.imageView.setVisibility(View.VISIBLE);
+            holder.imageView.setVisibility(View.GONE);
         }
 
 
