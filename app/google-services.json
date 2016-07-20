@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "162324296277",
+    "project_id": "biligo-1314"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162324296277:android:7354507935a6c52d",
+        "android_client_info": {
+          "package_name": "kr.com.biligo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsJJo1OKpMxLQfcoU_fMf61c4daUmJSYg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

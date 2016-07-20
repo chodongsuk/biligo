@@ -38,6 +38,14 @@
                 android:layout_height="204dip"
                 android:visibility="gone"/>
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/linearLayout_images">
+            </LinearLayout>
+
             <LinearLayout
                 android:paddingLeft="5dip"
                 android:paddingRight="5dip"
@@ -50,6 +58,7 @@
                     android:layout_marginTop="20dip"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     />
 
 
