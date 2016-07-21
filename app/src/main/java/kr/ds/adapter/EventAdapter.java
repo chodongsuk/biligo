@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ import kr.com.biligo.R;
 import kr.ds.handler.EventHandler;
 import kr.ds.handler.GoodHandler;
 import kr.ds.utils.DsObjectUtils;
+import kr.ds.utils.ScreenUtils;
 
 /**
  * Created by Administrator on 2016-03-21.
@@ -72,6 +74,8 @@ public class EventAdapter extends BaseAdapter {
             holder.cardView = (CardView)convertView.findViewById(R.id.card_view);
             holder.imageView = (ImageView)convertView.findViewById(R.id.imageView);
             holder.textViewName = (TextView) convertView.findViewById(R.id.textView_name);
+            holder.frameLayout = (FrameLayout) convertView.findViewById(R.id.frameLayout);
+
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -95,9 +99,10 @@ public class EventAdapter extends BaseAdapter {
                 @Override
                 public void onLoadingComplete(String arg0, View arg1, Bitmap arg2) {
                     // TODO Auto-generated method stub
-                    //int width = getWidth() - ScreenUtils.getInstacne().getPixelFromDPI(mContext, 12);
-                    //int height = (int) (arg2.getHeight() * (width / (float) arg2.getWidth()));
-                    //holder.imageView.setLayoutParams(new FrameLayout.LayoutParams(width, height));
+                    int width = getWidth();
+                    int height = (int) (arg2.getHeight() * (width / (float) arg2.getWidth()));
+                    holder.frameLayout.setLayoutParams(new LinearLayout.LayoutParams(width, height));
+                    holder.imageView.setLayoutParams(new FrameLayout.LayoutParams(width, height));
                     holder.imageView.setVisibility(View.VISIBLE);
                 }
 
@@ -129,6 +134,7 @@ public class EventAdapter extends BaseAdapter {
         ImageView imageView;
         LinearLayout linearLayoutReservation;
         TextView textViewName;
+        FrameLayout frameLayout;
 
     }
 }

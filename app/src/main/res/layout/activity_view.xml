@@ -67,7 +67,7 @@
                     android:background="@color/app_color"
                     android:textColor="#ffffff"
                     android:id="@+id/checkbox"
-                    android:text="동의 하시겠습니까?"
+                    android:text="이용 가이드의 내용에 동의 하시겠습니까?"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 

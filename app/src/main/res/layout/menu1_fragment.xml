@@ -105,7 +105,7 @@
                                 android:layout_marginTop="10dip"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="주간 체육교구"
+                                android:text="주간 렌탈"
                                 android:textStyle="bold"
                                 android:textColor="@color/app_color"/>
                         </LinearLayout>
@@ -135,7 +135,7 @@
                                 android:layout_marginTop="10dip"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="할인렌탈"
+                                android:text="할인 렌탈"
                                 android:textStyle="bold"
                                 android:textColor="@color/app_color"/>
                         </LinearLayout>
@@ -147,7 +147,7 @@
                         android:layout_weight="0.3">
 
                         <LinearLayout
-                            android:id="@+id/linearLayout3"
+                            android:id="@+id/linearLayout_event2"
                             android:layout_width="0dip"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
@@ -163,7 +163,7 @@
                                 android:layout_marginTop="10dip"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="이벤트용품"
+                                android:text="이벤트 용품"
                                 android:textStyle="bold"
                                 android:textColor="@color/app_color"/>
                         </LinearLayout>
@@ -184,7 +184,7 @@
                         android:layout_weight="0.3">
 
                         <LinearLayout
-                            android:id="@+id/linearLayout4"
+                            android:id="@+id/linearLayout_web3"
                             android:layout_width="0dip"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
@@ -194,7 +194,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:background="@mipmap/a1"/>
+                                android:background="@mipmap/a4"/>
 
                             <TextView
                                 android:layout_marginTop="10dip"
@@ -214,7 +214,7 @@
                         android:layout_weight="0.3">
 
                         <LinearLayout
-                            android:id="@+id/linearLayout5"
+                            android:id="@+id/linearLayout_web4"
                             android:layout_width="0dip"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
@@ -224,7 +224,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:background="@mipmap/a2"/>
+                                android:background="@mipmap/a5"/>
 
                             <TextView
                                 android:layout_marginTop="10dip"
@@ -252,7 +252,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:background="@mipmap/a5"/>
+                                android:background="@mipmap/a6"/>
 
                             <TextView
                                 android:layout_marginTop="10dip"

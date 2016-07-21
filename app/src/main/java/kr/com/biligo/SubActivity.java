@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
 
+import kr.ds.fragment.Event2Fragment;
 import kr.ds.fragment.EventFragment;
 import kr.ds.fragment.GoodFragment;
 import kr.ds.fragment.Menu1Fragment;
@@ -41,11 +42,13 @@ public class SubActivity extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         if (mToolbar != null) {
             if(mType == Menu1Fragment.TypeGood) {
-                mToolbar.setTitle("체육용품 렌탈");
+                mToolbar.setTitle("주간 렌탈");
             }else if(mType == Menu1Fragment.TypeShop) {
                 mToolbar.setTitle("모바일 쇼핑몰");
             }else if(mType == Menu1Fragment.TypeEvent) {
-                mToolbar.setTitle("기타 렌탈");
+                mToolbar.setTitle("할인 렌탈");
+            }else if(mType == Menu1Fragment.TypeEvent2) {
+                mToolbar.setTitle("이벤트 용품");
             }
             setSupportActionBar(mToolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -64,6 +67,9 @@ public class SubActivity extends AppCompatActivity {
                 break;
             case Menu1Fragment.TypeEvent:
                 mFragment = EventFragment.newInstance();
+                break;
+            case Menu1Fragment.TypeEvent2:
+                mFragment = Event2Fragment.newInstance();
                 break;
         }
 

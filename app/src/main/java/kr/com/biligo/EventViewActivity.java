@@ -1,5 +1,6 @@
 package kr.com.biligo;
 
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -10,8 +11,12 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Toast;
+
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,6 +26,7 @@ import kr.ds.data.BaseResultListener;
 import kr.ds.data.EventSaveData;
 import kr.ds.handler.EventHandler;
 import kr.ds.utils.DsObjectUtils;
+import kr.ds.utils.ScreenUtils;
 import kr.ds.widget.ContentViewPager;
 
 /**
@@ -39,7 +45,8 @@ public class EventViewActivity extends BaseActivity implements View.OnClickListe
     private Button mButton;
     private CheckBox mCheckBox;
     private WebView mWebView;
-
+    private LinearLayout mLinearLayoutImages;
+    private final ImageLoader imageDownloader = ImageLoader.getInstance();
 
 
     @Override
@@ -60,16 +67,24 @@ public class EventViewActivity extends BaseActivity implements View.OnClickListe
             setSupportActionBar(mToolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-        mContetViewPager = (ContentViewPager)findViewById(R.id.viewpager);
+        mLinearLayoutImages = (LinearLayout)findViewById(R.id.linearLayout_images);
+        //mContetViewPager = (ContentViewPager)findViewById(R.id.viewpager);
         if(!DsObjectUtils.getInstance(getApplicationContext()).isEmpty(mSavedata.getSub_images())){
-            mContetViewPager.setVisibility(View.VISIBLE);
+            //mContetViewPager.setVisibility(View.VISIBLE);
+            mLinearLayoutImages.setVisibility(View.VISIBLE);
             String[] mDatas = new String[(mSavedata.getSub_images().split(",").length)];
+            final ImageView imageView[] = new ImageView[mDatas.length];
             for(int i=0; i<mSavedata.getSub_images().split(",").length; i++){
                 mDatas[i] = mSavedata.getSub_images().split(",")[i];
+                imageView[i] = new ImageView(getApplicationContext());
+                imageView[i].setLayoutParams(new LinearLayout.LayoutParams(getWidth(), ScreenUtils.getInstacne().getPixelFromDPI(getApplicationContext(), 227)));
+                mLinearLayoutImages.addView(imageView[i]);
+                imageDownloader.displayImage(mDatas[i], imageView[i]);
             }
-            mContetViewPager.setView(mDatas);
+           // mContetViewPager.setView(mDatas);
         }else{
-            mContetViewPager.setVisibility(View.GONE);
+            mLinearLayoutImages.setVisibility(View.GONE);
+            //mContetViewPager.setVisibility(View.GONE);
         }
         (mCheckBox = (CheckBox) findViewById(R.id.checkbox)).setOnClickListener(this);
 
@@ -86,6 +101,11 @@ public class EventViewActivity extends BaseActivity implements View.OnClickListe
         WebSettings set = mWebView.getSettings();
         set.setJavaScriptEnabled(true);
         mWebView.loadUrl(Config.URL + Config.URL_XML + Config.WEB3);
+    }
+    public int getWidth(){
+        Point p = new Point();
+        p.x = getResources().getDisplayMetrics().widthPixels;
+        return p.x;
     }
     class WebClient extends WebViewClient {
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -179,7 +199,7 @@ public class EventViewActivity extends BaseActivity implements View.OnClickListe
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mContetViewPager.finish();
+        //mContetViewPager.finish();
     }
 
 }

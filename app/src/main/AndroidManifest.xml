@@ -45,6 +45,9 @@
         <activity
             android:name=".EventViewActivity">
         </activity>
+        <activity
+            android:name=".Event2ViewActivity">
+        </activity>
 
 
         <!-- [START gcm_receiver] -->

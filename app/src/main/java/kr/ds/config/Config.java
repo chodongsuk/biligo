@@ -10,6 +10,10 @@ public class Config {
 	public static String MAIN = "main.php";
 	public static String EVENT = "event.php";
 	public static String EVENTSAVE = "event_save.php";
+
+	public static String EVENT2 = "event2.php";
+	public static String EVENTSAVE2 = "event2_save.php";
+
 	public static String GOOD = "good.php";
 	public static String GOODSAVE = "good_save.php";
 
@@ -22,7 +26,8 @@ public class Config {
 
 	public static String WEB3= "html3.php";
 
-
+	public static String WEB4= "html4.php";
+	public static String WEB5= "html5.php";
 
 
 	public static String FILEFOLDER = "";// 서버파일폴더

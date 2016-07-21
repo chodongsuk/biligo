@@ -28,14 +28,17 @@ import kr.ds.widget.ContentViewPager;
 public class Menu1Fragment extends BaseFragment implements View.OnClickListener{
     private Context mContext;
     private View mView;
-    private LinearLayout mLinearLayoutGood, mLinearLayoutShop, mLinearLayoutEvent;
+    private LinearLayout mLinearLayoutGood, mLinearLayoutShop, mLinearLayoutEvent, mLinearLayoutEvent2;
     public final static int TypeGood = 1;
     public final static int TypeShop = 2;
     public final static int TypeEvent = 3;
+    public final static int TypeEvent2 = 4;
     private ContentViewPager mContentViewPager;
     private MainData mMainData;
     private LinearLayout mLinearLayoutWeb1;
     private LinearLayout mLinearLayoutWeb2;
+    private LinearLayout mLinearLayoutWeb3;
+    private LinearLayout mLinearLayoutWeb4;
 
     public static Menu1Fragment newInstance() {
         Menu1Fragment fragment = new Menu1Fragment();
@@ -64,9 +67,12 @@ public class Menu1Fragment extends BaseFragment implements View.OnClickListener{
         (mLinearLayoutGood = (LinearLayout) mView.findViewById(R.id.linearLayout_good)).setOnClickListener(this);
         (mLinearLayoutShop = (LinearLayout) mView.findViewById(R.id.linearLayout_shop)).setOnClickListener(this);
         (mLinearLayoutEvent = (LinearLayout) mView.findViewById(R.id.linearLayout_event)).setOnClickListener(this);
+        (mLinearLayoutEvent2 = (LinearLayout) mView.findViewById(R.id.linearLayout_event2)).setOnClickListener(this);
 
         (mLinearLayoutWeb1 = (LinearLayout) mView.findViewById(R.id.linearLayout_web1)).setOnClickListener(this);
         (mLinearLayoutWeb2 = (LinearLayout) mView.findViewById(R.id.linearLayout_web2)).setOnClickListener(this);
+        (mLinearLayoutWeb3 = (LinearLayout) mView.findViewById(R.id.linearLayout_web3)).setOnClickListener(this);
+        (mLinearLayoutWeb4 = (LinearLayout) mView.findViewById(R.id.linearLayout_web4)).setOnClickListener(this);
 
 
         mContentViewPager = (ContentViewPager) mView.findViewById(R.id.viewpager);
@@ -127,6 +133,11 @@ public class Menu1Fragment extends BaseFragment implements View.OnClickListener{
                 NextIntent.putExtra("type", TypeEvent);
                 startActivity(NextIntent);
                 break;
+            case R.id.linearLayout_event2:
+                NextIntent = new Intent(mContext, SubActivity.class);
+                NextIntent.putExtra("type", TypeEvent2);
+                startActivity(NextIntent);
+                break;
             case R.id.linearLayout_web1:
                 NextIntent = new Intent(mContext, WebActivity2.class);
                 NextIntent.putExtra("title", "BillGo 회원모집");
@@ -137,6 +148,18 @@ public class Menu1Fragment extends BaseFragment implements View.OnClickListener{
                 NextIntent = new Intent(mContext, WebActivity2.class);
                 NextIntent.putExtra("title", "가맹점 모집");
                 NextIntent.putExtra("url", Config.URL+Config.URL_XML+Config.WEB2);
+                startActivity(NextIntent);
+                break;
+            case R.id.linearLayout_web3:
+                NextIntent = new Intent(mContext, WebActivity2.class);
+                NextIntent.putExtra("title", "프렌차이즈");
+                NextIntent.putExtra("url", Config.URL+Config.URL_XML+Config.WEB4);
+                startActivity(NextIntent);
+                break;
+            case R.id.linearLayout_web4:
+                NextIntent = new Intent(mContext, WebActivity2.class);
+                NextIntent.putExtra("title", "이용 단체공지");
+                NextIntent.putExtra("url", Config.URL+Config.URL_XML+Config.WEB5);
                 startActivity(NextIntent);
                 break;
 
