@@ -145,15 +145,16 @@
                     android:textColor="#000000"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="대여일"/>
+                    android:text="기타사항(메모)"/>
 
                 <EditText
+                    android:gravity="top"
                     android:layout_marginTop="10dip"
                     android:padding="10dip"
                     android:background="@color/app_color"
                     android:id="@+id/ediText_start_date"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="150dip"/>
                 <View
                     android:layout_marginTop="10dip"
                     android:layout_marginBottom="10dip"
@@ -161,7 +162,7 @@
                     android:layout_height="1px"
                     android:background="@color/app_color"/>
 
-                <TextView
+                <!--TextView
 
                     android:textStyle="bold"
                     android:textSize="16sp"
@@ -182,9 +183,15 @@
                     android:layout_marginBottom="10dip"
                     android:layout_width="match_parent"
                     android:layout_height="1px"
-                    android:background="@color/app_color"/>
+                    android:background="@color/app_color"/-->
 
-
+                <TextView
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:text="입금계좌 안내 신한 110 - 446 - 237817  인더짐"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

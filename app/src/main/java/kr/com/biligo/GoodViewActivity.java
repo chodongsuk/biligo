@@ -95,7 +95,7 @@ public class GoodViewActivity extends BaseActivity implements View.OnClickListen
         mEditTextHp = (EditText)findViewById(R.id.ediText_hp);
         mEditTextAddress = (EditText)findViewById(R.id.ediText_address);
         mEditTextStartDate = (EditText)findViewById(R.id.ediText_start_date);
-        mEditTextEndDate = (EditText)findViewById(R.id.ediText_end_date);
+        //mEditTextEndDate = (EditText)findViewById(R.id.ediText_end_date);
 
         (mButton = (Button)findViewById(R.id.button)).setOnClickListener(this);
 
@@ -145,13 +145,13 @@ public class GoodViewActivity extends BaseActivity implements View.OnClickListen
             return false;
         }
         if(DsObjectUtils.getInstance(getApplicationContext()).isEmpty(mEditTextStartDate.getText().toString())) {
-            Toast.makeText(getApplicationContext(),"대여일을 입력 해주시기 바랍니다.",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"기타사항(메모)를 입력 해주시기 바랍니다.",Toast.LENGTH_SHORT).show();
             return false;
         }
-        if(DsObjectUtils.getInstance(getApplicationContext()).isEmpty(mEditTextEndDate.getText().toString())) {
-            Toast.makeText(getApplicationContext(),"반납일을 입력 해주시기 바랍니다.",Toast.LENGTH_SHORT).show();
-            return false;
-        }
+//        if(DsObjectUtils.getInstance(getApplicationContext()).isEmpty(mEditTextEndDate.getText().toString())) {
+//            Toast.makeText(getApplicationContext(),"반납일을 입력 해주시기 바랍니다.",Toast.LENGTH_SHORT).show();
+//            return false;
+//        }
 
         return true;
     }
@@ -167,7 +167,7 @@ public class GoodViewActivity extends BaseActivity implements View.OnClickListen
                     mHashMap.put("gfr_title", "");
                     mHashMap.put("gfr_name", mEditTextName.getText().toString());
                     mHashMap.put("gfr_start_date", mEditTextStartDate.getText().toString());
-                    mHashMap.put("gfr_end_date", mEditTextEndDate.getText().toString());
+//                    mHashMap.put("gfr_end_date", mEditTextEndDate.getText().toString());
                     mHashMap.put("gfr_address", mEditTextAddress.getText().toString());
                     mHashMap.put("gfr_tell", mEditTextHp.getText().toString());
 

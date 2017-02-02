@@ -46,7 +46,7 @@ public class SubActivity extends AppCompatActivity {
             }else if(mType == Menu1Fragment.TypeShop) {
                 mToolbar.setTitle("모바일 쇼핑몰");
             }else if(mType == Menu1Fragment.TypeEvent) {
-                mToolbar.setTitle("할인 렌탈");
+                mToolbar.setTitle("기타 렌탈");
             }else if(mType == Menu1Fragment.TypeEvent2) {
                 mToolbar.setTitle("이벤트 용품");
             }
