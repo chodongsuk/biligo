@@ -33,6 +33,7 @@ public class Menu1Fragment extends BaseFragment implements View.OnClickListener{
     public final static int TypeShop = 2;
     public final static int TypeEvent = 3;
     public final static int TypeEvent2 = 4;
+    public final static int TypeTeacher = 5;
     private ContentViewPager mContentViewPager;
     private MainData mMainData;
     private LinearLayout mLinearLayoutWeb1;
@@ -71,7 +72,7 @@ public class Menu1Fragment extends BaseFragment implements View.OnClickListener{
 
         (mLinearLayoutWeb1 = (LinearLayout) mView.findViewById(R.id.linearLayout_web1)).setOnClickListener(this);
         (mLinearLayoutWeb2 = (LinearLayout) mView.findViewById(R.id.linearLayout_web2)).setOnClickListener(this);
-        (mLinearLayoutWeb3 = (LinearLayout) mView.findViewById(R.id.linearLayout_web3)).setOnClickListener(this);
+        (mLinearLayoutWeb3 = (LinearLayout) mView.findViewById(R.id.linearLayout_web3)).setOnClickListener(this); //강사빌리고.
         (mLinearLayoutWeb4 = (LinearLayout) mView.findViewById(R.id.linearLayout_web4)).setOnClickListener(this);
 
 
@@ -157,10 +158,10 @@ public class Menu1Fragment extends BaseFragment implements View.OnClickListener{
                 startActivity(NextIntent);
                 break;
             case R.id.linearLayout_web4:
-                NextIntent = new Intent(mContext, WebActivity2.class);
-                NextIntent.putExtra("title", "이용 단체공지");
-                NextIntent.putExtra("url", Config.URL+Config.URL_XML+Config.WEB5);
+                NextIntent = new Intent(mContext, SubActivity.class);
+                NextIntent.putExtra("type", TypeTeacher);
                 startActivity(NextIntent);
+
                 break;
 
 

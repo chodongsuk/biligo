@@ -30,6 +30,12 @@ public class Config {
 	public static String WEB5= "html5.php";
 
 
+	public static String AREA = "area.php";
+	public static String TEACHER = "teacher.php";
+	public static String TEACHERSAVE = "teacher_save.php";
+
+
+
 	public static String FILEFOLDER = "";// 서버파일폴더
 	public static String GCM = "gcm.php";
 

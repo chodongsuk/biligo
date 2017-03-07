@@ -1,7 +1,6 @@
 package kr.com.biligo;
 
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -9,18 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnMenuTabClickListener;
-
 import kr.ds.fragment.Event2Fragment;
 import kr.ds.fragment.EventFragment;
 import kr.ds.fragment.GoodFragment;
 import kr.ds.fragment.Menu1Fragment;
-import kr.ds.fragment.Menu2Fragment;
-import kr.ds.fragment.Menu3Fragment;
-import kr.ds.fragment.Menu4Fragment;
 import kr.ds.fragment.ShopFragment;
-import kr.ds.utils.DsObjectUtils;
+import kr.ds.fragment.AreaFragment;
 
 /**
  * Created by Administrator on 2016-04-26.
@@ -49,6 +42,8 @@ public class SubActivity extends AppCompatActivity {
                 mToolbar.setTitle("기타 렌탈");
             }else if(mType == Menu1Fragment.TypeEvent2) {
                 mToolbar.setTitle("이벤트 용품");
+            }else if(mType == Menu1Fragment.TypeTeacher) {
+                mToolbar.setTitle("강사 빌리고");
             }
             setSupportActionBar(mToolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -70,6 +65,9 @@ public class SubActivity extends AppCompatActivity {
                 break;
             case Menu1Fragment.TypeEvent2:
                 mFragment = Event2Fragment.newInstance();
+                break;
+            case Menu1Fragment.TypeTeacher:
+                mFragment = AreaFragment.newInstance();
                 break;
         }
 
