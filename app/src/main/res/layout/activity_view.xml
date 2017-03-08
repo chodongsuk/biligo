@@ -74,8 +74,8 @@
                 <TextView
                     android:layout_marginTop="20dip"
                     android:textStyle="bold"
-                    android:textSize="16sp"
-                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:textColor="#232323"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="주문자"/>
@@ -83,7 +83,8 @@
                 <EditText
                     android:layout_marginTop="10dip"
                     android:padding="10dip"
-                    android:background="@color/app_color"
+                    android:background="@drawable/bg_line"
+                    android:textColor="#232323"
                     android:id="@+id/ediText_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -96,8 +97,8 @@
 
                 <TextView
                     android:textStyle="bold"
-                    android:textSize="16sp"
-                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:textColor="#232323"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="연락처"/>
@@ -105,7 +106,8 @@
                 <EditText
                     android:layout_marginTop="10dip"
                     android:padding="10dip"
-                    android:background="@color/app_color"
+                    android:background="@drawable/bg_line"
+                    android:textColor="#232323"
                     android:id="@+id/ediText_hp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -118,8 +120,8 @@
 
                 <TextView
                     android:textStyle="bold"
-                    android:textSize="16sp"
-                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:textColor="#232323"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="주소"/>
@@ -127,7 +129,8 @@
                 <EditText
                     android:layout_marginTop="10dip"
                     android:padding="10dip"
-                    android:background="@color/app_color"
+                    android:background="@drawable/bg_line"
+                    android:textColor="#232323"
                     android:id="@+id/ediText_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -141,8 +144,8 @@
                 <TextView
 
                     android:textStyle="bold"
-                    android:textSize="16sp"
-                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:textColor="#232323"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="기타사항(메모)"/>
@@ -151,7 +154,8 @@
                     android:gravity="top"
                     android:layout_marginTop="10dip"
                     android:padding="10dip"
-                    android:background="@color/app_color"
+                    android:background="@drawable/bg_line"
+                    android:textColor="#232323"
                     android:id="@+id/ediText_start_date"
                     android:layout_width="match_parent"
                     android:layout_height="150dip"/>
@@ -186,9 +190,11 @@
                     android:background="@color/app_color"/-->
 
                 <TextView
+                    android:paddingTop="10dip"
+                    android:paddingBottom="10dip"
                     android:textStyle="bold"
                     android:textSize="16sp"
-                    android:textColor="#000000"
+                    android:textColor="#232323"
                     android:text="입금계좌 안내 신한 110 - 446 - 237817  인더짐"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>

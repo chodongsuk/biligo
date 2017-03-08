@@ -12,13 +12,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 
 import kr.com.biligo.R;
 import kr.com.biligo.TeacherActivity;
+import kr.com.biligo.WebActivity2;
 import kr.ds.adapter.AreaAdapter;
+import kr.ds.config.Config;
 import kr.ds.data.BaseResultListener;
 import kr.ds.data.AreaData;
 import kr.ds.handler.AreaHandler;
@@ -35,6 +38,7 @@ public class AreaFragment extends Fragment implements View.OnClickListener{
     private GridView mGridView;
     private AreaAdapter mAreaAdapter;
     private ProgressBar mProgressBar;
+    private ImageView mImageViewBanner;
 
 
     public static AreaFragment newInstance() {
@@ -60,7 +64,7 @@ public class AreaFragment extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         mView = inflater.inflate(R.layout.area_fragment, null);
-
+        (mImageViewBanner = (ImageView)mView.findViewById(R.id.imageView_banner)).setOnClickListener(this);
         mProgressBar = (ProgressBar)mView.findViewById(R.id.progressBar);
         mGridView = (GridView) mView.findViewById(R.id.gridview);
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -120,6 +124,13 @@ public class AreaFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()){
+            case R.id.imageView_banner:
+                Intent NextIntent = new Intent(mContext, WebActivity2.class);
+                NextIntent.putExtra("title", "강사 빌리고 이용안내?");
+                NextIntent.putExtra("url", "http://blog.naver.com/kiminhan4909/220948992883");
+                startActivity(NextIntent);
+                break;
+        }
     }
 }

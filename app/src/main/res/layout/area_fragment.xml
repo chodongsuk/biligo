@@ -3,14 +3,18 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-
+    <ImageView
+        android:id="@+id/imageView_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/banner_1"/>
     <TextView
-        android:padding="10dip"
-        android:textSize="15sp"
+        android:paddingTop="20dip"
+        android:paddingBottom="10dip"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:layout_gravity="center"
-        android:textColor="#000000"
+        android:textColor="@color/app_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1. 지역을 선택하세요."/>

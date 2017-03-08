@@ -1,8 +1,10 @@
 package kr.ds.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Point;
+import android.media.Image;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,11 +72,11 @@ public class TeacherAdapter extends BaseAdapter {
         if (convertView == null) {
             holder = new ViewHolder();
             convertView = mInflater.inflate(R.layout.list_teacher_fragment_item,null);
-            holder.cardView = (CardView)convertView.findViewById(R.id.card_view);
             holder.imageView = (ImageView)convertView.findViewById(R.id.imageView);
             holder.textViewName = (TextView) convertView.findViewById(R.id.textView_name);
             holder.textViewTitle = (TextView) convertView.findViewById(R.id.textView_title);
             holder.textViewType = (TextView) convertView.findViewById(R.id.textView_type);
+            holder.linearLayoutType = (LinearLayout)convertView.findViewById(R.id.linearLayout_type);
 
             convertView.setTag(holder);
         } else {
@@ -124,20 +126,27 @@ public class TeacherAdapter extends BaseAdapter {
             holder.textViewTitle.setText("");
         }
         if(!DsObjectUtils.getInstance(mContext).isEmpty(mData.get(position).getTd_type())){
-            holder.textViewType.setText(mData.get(position).getTd_type());
+            //holder.textViewType.setText(mData.get(position).getTd_type());
+            holder.linearLayoutType.removeAllViews();
+            ImageView imageView[] = new ImageView[Integer.parseInt(mData.get(position).getTd_type())];
+            for(int i=0; i<Integer.parseInt(mData.get(position).getTd_type()); i++) {
+                imageView[i] = new ImageView(mContext);
+                imageView[i].setImageResource(R.mipmap.type);
+                holder.linearLayoutType.addView(imageView[i]);
+            }
         }else{
-            holder.textViewType.setText("");
+            //holder.textViewType.setText("");
         }
 
         return convertView;
     }
 
     class ViewHolder {
-        CardView cardView;
         ImageView imageView;
         TextView textViewName;
         TextView textViewType;
         TextView textViewTitle;
+        LinearLayout linearLayoutType;
 
 
     }

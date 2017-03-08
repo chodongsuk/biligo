@@ -29,7 +29,7 @@ public class TeacherActivity extends BaseActivity{
 
         setContentView(R.layout.activity_teacher);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mToolbar.setTitle("강사빌리고");
+        mToolbar.setTitle("강사 빌리고");
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mFragment = TeacherFragment.newInstance(mSavedata);

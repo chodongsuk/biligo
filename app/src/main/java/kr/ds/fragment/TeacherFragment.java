@@ -11,13 +11,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import kr.com.biligo.R;
+import kr.com.biligo.TeacherViewActivity;
+import kr.com.biligo.WebActivity2;
 import kr.ds.adapter.TeacherAdapter;
 import kr.ds.data.BaseResultListener;
 import kr.ds.data.TeacherData;
@@ -28,7 +32,7 @@ import kr.ds.handler.TeacherHandler;
 /**
  * Created by Administrator on 2016-05-15.
  */
-public class TeacherFragment extends Fragment {
+public class TeacherFragment extends Fragment implements  View.OnClickListener{
     private ArrayList<TeacherHandler> mData;
     private Context mContext;
     private View mView;
@@ -37,6 +41,7 @@ public class TeacherFragment extends Fragment {
     private TeacherAdapter mTeacherAdapter;
     private ProgressBar mProgressBar;
     private AreaHandler mSavedata;
+    private ImageView mImageViewBanner;
 
     public TeacherFragment() {
     }
@@ -65,7 +70,7 @@ public class TeacherFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         mView = inflater.inflate(R.layout.teacher_fragment, null);
-
+        (mImageViewBanner = (ImageView)mView.findViewById(R.id.imageView_banner)).setOnClickListener(this);
         mProgressBar = (ProgressBar)mView.findViewById(R.id.progressBar);
         mListView = (ListView)mView.findViewById(R.id.listView);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -75,14 +80,11 @@ public class TeacherFragment extends Fragment {
                                     int position, long id) {
                 // TODO Auto-generated method stub
                 Log.i("TEST","onItemClick");
-                //Intent NextIntent = new Intent(mContext, TeacherViewActivity.class);
-                //NextIntent.putExtra("data", mData.get(position));
-                //startActivity(NextIntent);
-
+                Intent NextIntent = new Intent(mContext, TeacherViewActivity.class);
+                NextIntent.putExtra("data", mData.get(position));
+                startActivity(NextIntent);
             }
         });
-
-
         return mView;
     }
 
@@ -115,10 +117,23 @@ public class TeacherFragment extends Fragment {
 
                     @Override
                     public void OnError(String str) {
+                        Toast.makeText(mContext, "강사가 존재 하지 않습니다.",Toast.LENGTH_SHORT).show();
                         mProgressBar.setVisibility(View.GONE);
 
                     }
                 }).setParam("?code="+mSavedata.getCode()).getView();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.imageView_banner:
+                Intent NextIntent = new Intent(mContext, WebActivity2.class);
+                NextIntent.putExtra("title", "강사 빌리고 출강 상품");
+                NextIntent.putExtra("url", "http://blog.naver.com/kiminhan4909/220948994977");
+                startActivity(NextIntent);
+                break;
+        }
     }
 
 
