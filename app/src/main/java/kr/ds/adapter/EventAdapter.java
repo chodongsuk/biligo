@@ -13,6 +13,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.target.ImageViewTarget;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
@@ -80,41 +84,62 @@ public class EventAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
+        if(!DsObjectUtils.getInstance(mContext).isEmpty(mData.get(position).getEd_image())) {
+            Glide.with(mContext)
+                    .load(mData.get(position).getEd_image())
+                    .thumbnail(0.5f)
+                    .override(500, 500)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(new ImageViewTarget<GlideDrawable>(holder.imageView) {
+                        @Override
+                        protected void setResource(GlideDrawable resource) {
+                            holder.imageView.setVisibility(View.VISIBLE);
+                            int width = getWidth() - ScreenUtils.getInstacne().getPixelFromDPI(mContext, 12);
+                            int height = (int) (resource.getIntrinsicHeight() * (width / (float) resource.getIntrinsicWidth()));
+                            holder.imageView.setLayoutParams(new FrameLayout.LayoutParams(width, height));
+                            holder.imageView.setImageDrawable(resource);
+                        }
 
-        if(!DsObjectUtils.getInstance(mContext).isEmpty(mData.get(position).getEd_image())){
-            imageDownloader.displayImage(mData.get(position).getEd_image(), holder.imageView, new ImageLoadingListener() {
 
-                @Override
-                public void onLoadingStarted(String arg0, View arg1) {
-                    // TODO Auto-generated method stub
-                    holder.imageView.setVisibility(View.GONE);
-                }
-
-                @Override
-                public void onLoadingFailed(String arg0, View arg1, FailReason arg2) {
-                    // TODO Auto-generated method stub
-                    holder.imageView.setVisibility(View.GONE);
-                }
-
-                @Override
-                public void onLoadingComplete(String arg0, View arg1, Bitmap arg2) {
-                    // TODO Auto-generated method stub
-                    int width = getWidth();
-                    int height = (int) (arg2.getHeight() * (width / (float) arg2.getWidth()));
-                    holder.frameLayout.setLayoutParams(new LinearLayout.LayoutParams(width, height));
-                    holder.imageView.setLayoutParams(new FrameLayout.LayoutParams(width, height));
-                    holder.imageView.setVisibility(View.VISIBLE);
-                }
-
-                @Override
-                public void onLoadingCancelled(String arg0, View arg1) {
-                    // TODO Auto-generated method stub
-                    holder.imageView.setVisibility(View.GONE);
-                }
-            });
+                    });
         }else{
             holder.imageView.setVisibility(View.GONE);
         }
+
+//        if(!DsObjectUtils.getInstance(mContext).isEmpty(mData.get(position).getEd_image())){
+//            imageDownloader.displayImage(mData.get(position).getEd_image(), holder.imageView, new ImageLoadingListener() {
+//
+//                @Override
+//                public void onLoadingStarted(String arg0, View arg1) {
+//                    // TODO Auto-generated method stub
+//                    holder.imageView.setVisibility(View.GONE);
+//                }
+//
+//                @Override
+//                public void onLoadingFailed(String arg0, View arg1, FailReason arg2) {
+//                    // TODO Auto-generated method stub
+//                    holder.imageView.setVisibility(View.GONE);
+//                }
+//
+//                @Override
+//                public void onLoadingComplete(String arg0, View arg1, Bitmap arg2) {
+//                    // TODO Auto-generated method stub
+//                    int width = getWidth();
+//                    int height = (int) (arg2.getHeight() * (width / (float) arg2.getWidth()));
+//                    holder.frameLayout.setLayoutParams(new LinearLayout.LayoutParams(width, height));
+//                    holder.imageView.setLayoutParams(new FrameLayout.LayoutParams(width, height));
+//                    holder.imageView.setVisibility(View.VISIBLE);
+//                }
+//
+//                @Override
+//                public void onLoadingCancelled(String arg0, View arg1) {
+//                    // TODO Auto-generated method stub
+//                    holder.imageView.setVisibility(View.GONE);
+//                }
+//            });
+//        }else{
+//            holder.imageView.setVisibility(View.GONE);
+//        }
 
 
 

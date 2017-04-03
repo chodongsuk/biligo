@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
@@ -73,13 +75,28 @@ public class ShopAdapter extends BaseAdapter {
             convertView = mInflater.inflate(R.layout.shop_fragment_item,null);
             holder.cardView = (CardView)convertView.findViewById(R.id.card_view);
             holder.imageView = (ImageView)convertView.findViewById(R.id.imageView);
-            holder.textViewName = (TextView) convertView.findViewById(R.id.textView_name);
             holder.frameLayout = (FrameLayout) convertView.findViewById(R.id.frameLayout);
+            holder.textView = (TextView)convertView.findViewById(R.id.textView);
 
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
+        if(!DsObjectUtils.getInstance(mContext).isEmpty(mData.get(position).getSd_image())) {
+            Glide.with(mContext)
+                    .load(mData.get(position).getSd_image())
+                    .override(400,400)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(holder.imageView);
+        }else{
+            holder.imageView.setVisibility(View.GONE);
+        }
+        if(!DsObjectUtils.getInstance(mContext).isEmpty(mData.get(position).getSd_title())){
+            holder.textView.setText(mData.get(position).getSd_title());
+        }else{
+            holder.textView.setText("");
+        }
+        /*
 
         if(!DsObjectUtils.getInstance(mContext).isEmpty(mData.get(position).getSd_image())){
             imageDownloader.displayImage(mData.get(position).getSd_image(), holder.imageView, new ImageLoadingListener() {
@@ -99,10 +116,10 @@ public class ShopAdapter extends BaseAdapter {
                 @Override
                 public void onLoadingComplete(String arg0, View arg1, Bitmap arg2) {
                     // TODO Auto-generated method stub
-                    int width = getWidth();
-                    int height = (int) (arg2.getHeight() * (width / (float) arg2.getWidth()));
-                    holder.frameLayout.setLayoutParams(new LinearLayout.LayoutParams(width, height));
-                    holder.imageView.setLayoutParams(new FrameLayout.LayoutParams(width, height));
+                    //int width = getWidth()/2;
+                    //int height = (int) (arg2.getHeight() * (width / (float) arg2.getWidth()));
+                    //holder.frameLayout.setLayoutParams(new LinearLayout.LayoutParams(width, height));
+                    //holder.imageView.setLayoutParams(new FrameLayout.LayoutParams(width, height));
                     holder.imageView.setVisibility(View.VISIBLE);
                 }
 
@@ -115,13 +132,9 @@ public class ShopAdapter extends BaseAdapter {
         }else{
             holder.imageView.setVisibility(View.GONE);
         }
+        */
 
 
-        if(!DsObjectUtils.getInstance(mContext).isEmpty(mData.get(position).getSd_title())){
-            holder.textViewName.setText(mData.get(position).getSd_title());
-        }else{
-            holder.textViewName.setText("");
-        }
 
         return convertView;
     }
@@ -129,9 +142,8 @@ public class ShopAdapter extends BaseAdapter {
     class ViewHolder {
         CardView cardView;
         ImageView imageView;
-        LinearLayout linearLayoutReservation;
-        TextView textViewName;
         FrameLayout frameLayout;
+        TextView textView;
 
     }
 }
