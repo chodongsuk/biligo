@@ -77,8 +77,8 @@ public class GoodAdapter extends BaseAdapter {
             convertView = mInflater.inflate(R.layout.list_fragment_item,null);
             holder.cardView = (CardView)convertView.findViewById(R.id.card_view);
             holder.imageView = (ImageView)convertView.findViewById(R.id.imageView);
-            holder.textViewName = (TextView) convertView.findViewById(R.id.textView_name);
             holder.frameLayout = (FrameLayout) convertView.findViewById(R.id.frameLayout);
+            holder.textView = (TextView)convertView.findViewById(R.id.textView);
 
             convertView.setTag(holder);
         } else {
@@ -87,23 +87,17 @@ public class GoodAdapter extends BaseAdapter {
         if(!DsObjectUtils.getInstance(mContext).isEmpty(mData.get(position).getGd_image())) {
             Glide.with(mContext)
                     .load(mData.get(position).getGd_image())
-                    .thumbnail(0.5f)
-                    .override(500, 500)
+                    .override(400,400)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .into(new ImageViewTarget<GlideDrawable>(holder.imageView) {
-                        @Override
-                        protected void setResource(GlideDrawable resource) {
-                            holder.imageView.setVisibility(View.VISIBLE);
-                            int width = getWidth() - ScreenUtils.getInstacne().getPixelFromDPI(mContext, 12);
-                            int height = (int) (resource.getIntrinsicHeight() * (width / (float) resource.getIntrinsicWidth()));
-                            holder.imageView.setLayoutParams(new FrameLayout.LayoutParams(width, height));
-                            holder.imageView.setImageDrawable(resource);
-                        }
-
-
-                    });
+                    .into(holder.imageView);
         }else{
             holder.imageView.setVisibility(View.GONE);
+        }
+
+        if(!DsObjectUtils.getInstance(mContext).isEmpty(mData.get(position).getGd_name())){
+            holder.textView.setText(mData.get(position).getGd_name());
+        }else{
+            holder.textView.setText("");
         }
 
         /*
@@ -146,11 +140,6 @@ public class GoodAdapter extends BaseAdapter {
 
 
 
-        if(!DsObjectUtils.getInstance(mContext).isEmpty(mData.get(position).getGd_name())){
-            holder.textViewName.setText(mData.get(position).getGd_name());
-        }else{
-            holder.textViewName.setText("");
-        }
 
 
 
@@ -160,9 +149,8 @@ public class GoodAdapter extends BaseAdapter {
     class ViewHolder {
         CardView cardView;
         ImageView imageView;
-        LinearLayout linearLayoutReservation;
-        TextView textViewName;
         FrameLayout frameLayout;
+        TextView textView;
 
     }
 }

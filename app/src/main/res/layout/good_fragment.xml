@@ -24,17 +24,16 @@
                 android:layout_weight="0.33"
                 android:background="@color/app_color"
                 android:orientation="vertical"
-                android:paddingBottom="10dip"
-                android:paddingTop="10dip">
+                android:paddingBottom="5dip"
+                android:paddingTop="5dip">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="A-B"
+                    android:text="1월-2월"
                     android:textColor="#ffffff"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp" />
 
 
             </LinearLayout>
@@ -48,17 +47,16 @@
                 android:layout_weight="0.33"
                 android:background="@color/app_color"
                 android:orientation="vertical"
-                android:paddingBottom="10dip"
-                android:paddingTop="10dip">
+                android:paddingBottom="5dip"
+                android:paddingTop="5dip">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="C-D"
+                    android:text="3월-4월"
                     android:textColor="#ffffff"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp" />
 
 
             </LinearLayout>
@@ -73,17 +71,16 @@
                 android:layout_weight="0.33"
                 android:background="@color/app_color"
                 android:orientation="vertical"
-                android:paddingBottom="10dip"
-                android:paddingTop="10dip">
+                android:paddingBottom="5dip"
+                android:paddingTop="5dip">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="E-F"
+                    android:text="5월-6월"
                     android:textColor="#ffffff"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp" />
 
 
             </LinearLayout>
@@ -104,17 +101,17 @@
                 android:layout_weight="0.33"
                 android:background="@color/app_color"
                 android:orientation="vertical"
-                android:paddingBottom="10dip"
-                android:paddingTop="10dip">
+                android:paddingBottom="5dip"
+                android:paddingTop="5dip">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="G-H"
+                    android:text="7월-8월"
                     android:textColor="#ffffff"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp"
+                     />
 
 
             </LinearLayout>
@@ -129,17 +126,16 @@
                 android:layout_weight="0.33"
                 android:background="@color/app_color"
                 android:orientation="vertical"
-                android:paddingBottom="10dip"
-                android:paddingTop="10dip">
+                android:paddingBottom="5dip"
+                android:paddingTop="5dip">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="I-J"
+                    android:text="9월-10월"
                     android:textColor="#ffffff"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp" />
 
 
             </LinearLayout>
@@ -155,17 +151,16 @@
                 android:layout_weight="0.33"
                 android:background="@color/app_color"
                 android:orientation="vertical"
-                android:paddingBottom="10dip"
-                android:paddingTop="10dip">
+                android:paddingBottom="5dip"
+                android:paddingTop="5dip">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="K-L"
+                    android:text="11월-12월"
                     android:textColor="#ffffff"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp" />
 
 
             </LinearLayout>
@@ -180,13 +175,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ListView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/listView"
-            style="@style/ListViewStyle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="none"
-            android:verticalSpacing="2dip" />
+        <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:id="@+id/listView"
+                  style="@style/ListViewStyle"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:scrollbars="none"
+                  android:numColumns="2"
+            />
 
         <ProgressBar
             android:id="@+id/progressBar"

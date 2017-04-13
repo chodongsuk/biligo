@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
@@ -33,7 +34,7 @@ public class EventFragment extends Fragment{
     private Context mContext;
     private View mView;
     private EventData mEventData;
-    private ListView mListView;
+    private GridView mListView;
     private EventAdapter mEventAdapter;
     private ProgressBar mProgressBar;
 
@@ -63,9 +64,9 @@ public class EventFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        mView = inflater.inflate(R.layout.sub_fragment, null);
+        mView = inflater.inflate(R.layout.shop_fragment, null);
         mProgressBar = (ProgressBar)mView.findViewById(R.id.progressBar);
-        mListView = (ListView)mView.findViewById(R.id.listView);
+        mListView = (GridView)mView.findViewById(R.id.listView);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override

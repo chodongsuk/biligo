@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -32,7 +33,7 @@ public class GoodFragment extends Fragment implements View.OnClickListener{
     private Context mContext;
     private View mView;
     private GoodData mGoodData;
-    private ListView mListView;
+    private GridView mListView;
     private GoodAdapter mGoodAdapter;
     private ProgressBar mProgressBar;
     private String mCode = "001000000";
@@ -81,7 +82,7 @@ public class GoodFragment extends Fragment implements View.OnClickListener{
 
 
         mProgressBar = (ProgressBar)mView.findViewById(R.id.progressBar);
-        mListView = (ListView)mView.findViewById(R.id.listView);
+        mListView = (GridView)mView.findViewById(R.id.listView);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
