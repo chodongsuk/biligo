@@ -56,6 +56,13 @@
             android:name=".TeacherViewActivity">
         </activity>
 
+        <activity
+            android:name=".BounceActivity">
+        </activity>
+        <activity
+            android:name=".BounceViewActivity">
+        </activity>
+
 
         <!-- [START gcm_receiver] -->
         <receiver

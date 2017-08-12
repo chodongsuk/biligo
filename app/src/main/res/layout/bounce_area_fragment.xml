@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/bounce_banner_1"/>
+    <TextView
+        android:paddingTop="20dip"
+        android:paddingBottom="10dip"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:textColor="@color/app_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1. 지역을 선택하세요."/>
+    <FrameLayout
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/gridview"
+            style="@style/ListViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:verticalSpacing="10dip"
+            android:horizontalSpacing="30dip"
+            android:numColumns="2"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal" />
+    </FrameLayout>
+
+
+
+
+</LinearLayout>

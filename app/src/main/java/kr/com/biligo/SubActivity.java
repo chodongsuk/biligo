@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import kr.ds.fragment.BounceAreaFragment;
 import kr.ds.fragment.Event2Fragment;
 import kr.ds.fragment.EventFragment;
 import kr.ds.fragment.GoodFragment;
@@ -44,6 +45,8 @@ public class SubActivity extends AppCompatActivity {
                 mToolbar.setTitle("이벤트 용품");
             }else if(mType == Menu1Fragment.TypeTeacher) {
                 mToolbar.setTitle("강사 빌리고");
+            }else if(mType == Menu1Fragment.TypeBounce) {
+                mToolbar.setTitle("바운스 빌리고");
             }
             setSupportActionBar(mToolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -68,6 +71,9 @@ public class SubActivity extends AppCompatActivity {
                 break;
             case Menu1Fragment.TypeTeacher:
                 mFragment = AreaFragment.newInstance();
+                break;
+            case Menu1Fragment.TypeBounce:
+                mFragment = BounceAreaFragment.newInstance();
                 break;
         }
 

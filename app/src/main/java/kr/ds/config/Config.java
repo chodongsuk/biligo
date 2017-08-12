@@ -35,6 +35,10 @@ public class Config {
 	public static String TEACHERSAVE = "teacher_save.php";
 
 
+	public static String BOUNCE = "bounce.php";
+	public static String BOUNCESAVE = "bounce_save.php";
+
+
 
 	public static String FILEFOLDER = "";// 서버파일폴더
 	public static String GCM = "gcm.php";
