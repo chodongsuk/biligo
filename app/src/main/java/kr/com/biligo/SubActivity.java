@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import kr.ds.fragment.BounceAreaFragment;
 import kr.ds.fragment.Event2Fragment;
+import kr.ds.fragment.Event3Fragment;
 import kr.ds.fragment.EventFragment;
 import kr.ds.fragment.GoodFragment;
 import kr.ds.fragment.Menu1Fragment;
@@ -47,10 +48,11 @@ public class SubActivity extends AppCompatActivity {
                 mToolbar.setTitle("강사 빌리고");
             }else if(mType == Menu1Fragment.TypeBounce) {
                 mToolbar.setTitle("바운스 빌리고");
+            }else if(mType == Menu1Fragment.TypeBrandZone) {
+                mToolbar.setTitle("월간 렌탈");
             }
             setSupportActionBar(mToolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         }
         getFragment(mType);
 
@@ -74,6 +76,9 @@ public class SubActivity extends AppCompatActivity {
                 break;
             case Menu1Fragment.TypeBounce:
                 mFragment = BounceAreaFragment.newInstance();
+                break;
+            case Menu1Fragment.TypeBrandZone:
+                mFragment = Event3Fragment.newInstance();
                 break;
         }
 

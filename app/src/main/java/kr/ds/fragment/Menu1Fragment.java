@@ -35,6 +35,7 @@ public class Menu1Fragment extends BaseFragment implements View.OnClickListener{
     public final static int TypeEvent2 = 4;
     public final static int TypeTeacher = 5;
     public final static int TypeBounce = 6;
+    public final static int TypeBrandZone = 7;
     private ContentViewPager mContentViewPager;
     private MainData mMainData;
     private LinearLayout mLinearLayoutWeb1;
@@ -141,9 +142,8 @@ public class Menu1Fragment extends BaseFragment implements View.OnClickListener{
                 startActivity(NextIntent);
                 break;
             case R.id.linearLayout_web1:
-                NextIntent = new Intent(mContext, WebActivity2.class);
-                NextIntent.putExtra("title", "BillGo 회원모집");
-                NextIntent.putExtra("url", Config.URL+Config.URL_XML+Config.WEB1);
+                NextIntent = new Intent(mContext, SubActivity.class);
+                NextIntent.putExtra("type", TypeBrandZone);
                 startActivity(NextIntent);
                 break;
             case R.id.linearLayout_web2:

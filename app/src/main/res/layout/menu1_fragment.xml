@@ -40,7 +40,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
                         android:textStyle="bold"
-                        android:text="BiliGo 회원모집"/>
+                        android:text="브랜드존(월렌탈)"/>
                 </LinearLayout>
 
                 <LinearLayout

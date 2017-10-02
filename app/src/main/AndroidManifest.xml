@@ -50,6 +50,9 @@
             android:name=".Event2ViewActivity">
         </activity>
         <activity
+            android:name=".Event3ViewActivity">
+        </activity>
+        <activity
             android:name=".TeacherActivity">
         </activity>
         <activity

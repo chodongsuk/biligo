@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/biligo.iml" filepath="$PROJECT_DIR$/biligo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/biligo.iml" filepath="$PROJECT_DIR$/biligo.iml" />
     </modules>
   </component>
 </project>

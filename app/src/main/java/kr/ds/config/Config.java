@@ -14,6 +14,9 @@ public class Config {
 	public static String EVENT2 = "event2.php";
 	public static String EVENTSAVE2 = "event2_save.php";
 
+	public static String EVENT3 = "event3.php";
+	public static String EVENTSAVE3 = "event3_save.php";
+
 	public static String GOOD = "good.php";
 	public static String GOODSAVE = "good_save.php";
 
